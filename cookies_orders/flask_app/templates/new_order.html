@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="top_row">
+            <h1>Log a New Order</h1>
+            <a href="/">Return to orders</a>
+        </div>
+        <div class="form">
+            <form method="post" action="create_order">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="error">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <label for="name">Name:</label>
+                <input type="text" name="name">
+                <label for="cookie_name">Cookie Type:</label>
+                <input type="text" name="cookie_name">
+                <label for="num_boxes">Number of Boxes:</label>
+                <select name="num_boxes">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                <input type="submit" action="/create_order">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

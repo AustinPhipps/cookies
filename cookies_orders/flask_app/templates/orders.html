@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        {{orders}}
+        <div class="header">
+            <h2>Orders:</h2>
+            <a href="/new_order">New Order</a>
+        </div>
+        <table>
+            <theader>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Cookie Type</th>
+                    <th>Number of Boxes</th>
+                    <th>Actions</th>
+                </tr>
+            </theader>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <th>{{order.name}}</th>
+                    <th>{{order.cookie_name}}</th>
+                    <th>{{order.num_boxes}}</th>
+                    <th><a href="/edit_order/{{order.id}}">edit</a></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

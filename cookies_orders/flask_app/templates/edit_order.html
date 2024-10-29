@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/edit_order" method="post">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class="error">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="{{order.name}}">
+    <label for="cookie_name">Cookie Type:</label>
+    <input type="text" name="cookie_name" value="{{order.cookie_name}}">
+    <label for="num_boxes">Number of Boxes:</label>
+    <select name="num_boxes" value="{{num_boxes}}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    <input type="hidden" name="id" value="{{order.id}}"
+    <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
